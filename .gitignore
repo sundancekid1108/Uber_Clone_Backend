@@ -110,3 +110,6 @@ typings/
 # env
 .env
 # End of https://www.gitignore.io/api/node
+
+#process.txt
+process.txt
