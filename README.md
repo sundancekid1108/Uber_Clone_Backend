@@ -3,7 +3,7 @@
 
 #Server
  - postgres 켜고 작업할 것
-
+ - Verificatin, Ride, Place Entity 생성
 
 
 
