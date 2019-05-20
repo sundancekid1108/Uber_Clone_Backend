@@ -14,14 +14,12 @@
  - styled-components를 활용한 디자인 작업 중
 
 # Logged Out:
-
 - [ ] Home
 - [ ] Phone Login
 - [ ] Verify Phone Number
 - [ ] Social Login
 
-# Logged In:
-
+### Logged In:
 - [ ] Home
 - [ ] Ride
 - [ ] Edit Account
