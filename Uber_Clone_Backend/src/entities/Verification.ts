@@ -6,9 +6,8 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-  } from "typeorm";
-  import { verificationTarget } from "../types/types"
-
+} from "typeorm";
+import { verificationTarget } from "../types/types";
 
 const PHONE = "PHONE";
 const EMAIL = "EMAIL";
@@ -16,7 +15,7 @@ const EMAIL = "EMAIL";
 @Entity()
 class Verification extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
-    
+
   @Column({ type: "text", enum: [PHONE, EMAIL] })
   target: verificationTarget;
 
@@ -30,17 +29,18 @@ class Verification extends BaseEntity {
   used: boolean;
 
   @CreateDateColumn() createdAt: string;
-  
+
   @UpdateDateColumn() updatedAt: string;
 
   @BeforeInsert()
-  createPublicKey(): void{
+  createKey(): void {
     if (this.target === PHONE) {
-        this.key = Math.floor(Math.random()*100).toString();
+      this.key = Math.floor(Math.random() * 100000).toString();
     } else if (this.target === EMAIL) {
-        this.key = Math.random().toString(36).substr(2);
-    }// 키 만듬..
+      this.key = Math.random()
+        .toString(36)
+        .substr(2);
+    }
   }
 }
-
 export default Verification;
