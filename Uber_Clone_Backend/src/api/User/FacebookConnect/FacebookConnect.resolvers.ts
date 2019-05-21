@@ -1,7 +1,19 @@
 /**
  * facebook test 계정을 통해 진행..
  * fbID = facebook test계정의 "사용자 ID"
+ * 
+ * playground에서 실행
+ * 
+ * mutation{
+  FacebookConnect(firstName: "woncheol", lastName:"yang", email:"sundancekid1108@gmail.com", fbId: "sundancekid1108@gmail.com"){
+    ok
+    error
+    token
+  }
+}
+ * 
  */
+
 import User from "../../../entities/User";
 import {
   FacebookConnectMutationArgs,
