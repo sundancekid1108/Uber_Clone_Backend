@@ -15,7 +15,6 @@ import {
 import Chat from "./Chat";
 import Message from "./Message";
 import Ride from "./Ride";
-import Verification from "./Verification";
 
 const BCRYPT_ROUNDS = 10;
 
@@ -33,9 +32,6 @@ class User extends BaseEntity {
   @Column({ type: "text" })
   firstName: string;
 
-  @Column({ type: "text", nullable: true })
-  fbId: string;
-
   @Column({ type: "text" })
   lastName: string;
 
@@ -49,7 +45,7 @@ class User extends BaseEntity {
   phoneNumber: string;
 
   @Column({ type: "boolean", default: false })
-  verifiedPhonenNumber: boolean;
+  verifiedPhoneNumber: boolean;
 
   @Column({ type: "text" })
   profilePhoto: string;
@@ -72,14 +68,14 @@ class User extends BaseEntity {
   @Column({ type: "double precision", default: 0 })
   lastOrientation: number;
 
+  @Column({ type: "text", nullable: true })
+  fbId: string;
+
   @ManyToOne(type => Chat, chat => chat.participants)
   chat: Chat;
 
   @OneToMany(type => Message, message => message.user)
   messages: Message[];
-
-  @OneToMany(type => Verification, verification => verification.user)
-  verifications: Verification[];
 
   @OneToMany(type => Ride, ride => ride.passenger)
   ridesAsPassenger: Ride[];
