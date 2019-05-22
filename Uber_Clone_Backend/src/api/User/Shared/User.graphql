@@ -23,4 +23,5 @@ type User {
   updatedAt: String
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
+  places: [Place]
 }
