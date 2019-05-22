@@ -1,7 +1,7 @@
 import Twilio from "twilio";
-require('dotenv').config();
+require('dotenv').config({path: __dirname + '/.env'})
 
-const twilioClient = Twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
+const twilioClient = Twilio("AC340f9514d86eab8e377dc272af0c0610", "process.env.TWILIO_TOKEN");
 
 export const sendSMS = (to: string, body: string) => {
   return twilioClient.messages.create({

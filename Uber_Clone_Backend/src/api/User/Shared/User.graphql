@@ -24,9 +24,3 @@ type User {
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
 }
-
-#(1.24)verifications: [Verification] // verifications: [Verifications]은 왜 이러날까...
-
-type Query {
-  user: User
-}

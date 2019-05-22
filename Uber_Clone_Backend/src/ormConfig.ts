@@ -1,6 +1,6 @@
 import { ConnectionOptions } from "typeorm";
-import dotenv from "dotenv";
-dotenv.config();
+
+require('dotenv').config();
 
 const connectionOptions: ConnectionOptions = {
   type: "postgres",
@@ -20,6 +20,8 @@ export default connectionOptions;
 /**
  * TypeORM을 통해 DB와 맵핑.. 
  * 
- * postgres에서 Database를 설정해줘야 함
+ * postgres에서 Database를 설정해줘야 
+ * 
+ * terminal에서 psql, \c newber로 접속..
  * 
  * */
