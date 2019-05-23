@@ -119,4 +119,5 @@ process.txt
 #typescript
 # Ignores compiled TypeScript files
 /Uber_Clone_Frontend/build
+/build
 

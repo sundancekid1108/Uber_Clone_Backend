@@ -61,28 +61,6 @@
 - [ ] See Ride Detail
 
 
-
-#===============================================================
-
-#Client
- - 작업중
- - styled-components를 활용한 디자인 작업 중
-
-# Logged Out:
-- [ ] Home
-- [ ] Phone Login
-- [ ] Verify Phone Number
-- [ ] Social Login
-
-### Logged In:
-- [ ] Home
-- [ ] Ride
-- [ ] Edit Account
-- [ ] Settings
-- [ ] Places
-- [ ] Add Place
-- [ ] Find Address
-- [ ] Challenge: Ride History
   
 
 ### module 문제 해결
