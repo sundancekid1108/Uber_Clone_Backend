@@ -83,3 +83,9 @@
 - [ ] Add Place
 - [ ] Find Address
 - [ ] Challenge: Ride History
+  
+
+### module 문제 해결
+yarn cache clean *
+ rm -rf node_modules
+ yarn install

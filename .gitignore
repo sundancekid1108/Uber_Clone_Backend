@@ -8,6 +8,7 @@
 
 # production
 /build
+/Uber_Clone_Frontend/build
 
 # misc
 .DS_Store
@@ -113,3 +114,9 @@ typings/
 
 #process.txt
 process.txt
+
+
+#typescript
+# Ignores compiled TypeScript files
+/Uber_Clone_Frontend/build
+
