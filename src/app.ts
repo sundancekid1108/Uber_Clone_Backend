@@ -8,12 +8,17 @@ import {NextFunction, Response} from "express";
 
 class App {
   public app: GraphQLServer;
+  public pubSub: any;
   constructor() {
     this.app = new GraphQLServer({
       schema,
       context: req => {
+        //console.log(req);
+        const { connection: { context = null } = {} } = req;
         return {
-          req: req.request
+          req: req.request,
+          pubSub: this.pubSub,
+          context
         };
       }
     });
