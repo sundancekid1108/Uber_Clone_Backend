@@ -20,7 +20,7 @@ class Ride extends BaseEntity {
     default: "ACCEPTED"
   })
   status: rideStatus;
-
+  
   @Column({ type: "text" })
   pickUpAddress: string;
 
