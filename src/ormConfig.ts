@@ -7,7 +7,7 @@ const connectionOptions: ConnectionOptions = {
   type: "postgres",
   database: "newber",
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: ["entities/**/*.*"],
   host: process.env.DB_ENDPOINT,
   port: 5432,
