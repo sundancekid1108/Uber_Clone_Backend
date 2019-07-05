@@ -5,5 +5,5 @@ type SendChatMessageResponse {
 }
 
 type Mutation {
-  SendChatMessage(text: String!, chatId: Int!): SendChatMessageResponse!
+  SendChatMessage(chatId: Int!, text: String!): SendChatMessageResponse!
 }

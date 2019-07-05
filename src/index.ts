@@ -1,43 +1,39 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 dotenv.config();
+import { Options } from 'graphql-yoga';
+import { createConnection } from 'typeorm';
+import app from './app';
+import ConnectionOptions from './ormConfig';
+import decodeJWT from './utils/decodeJWT';
 
-import { Options } from "graphql-yoga";
-import { createConnection } from "typeorm";
-import app from "./app";
-import connectionOptions from "./ormConfig";
-import decodeJWT from "./utils/decodeJWT";
-
-const PORT: number | string = process.env.PORT || 4000;
-const PLAYGROUND_ENDPOINT: string = "/playground";
-const GRAPHQL_ENDPOINT: string = "/graphql";
+const PORT : number | string = process.env.PORT || 4000;
+const PLAYGROUND_ENDPOINT : string = "/playground";
+const GRAPHQL_ENDPOINT : string = "/graphql";
 const SUBSCRIPTION_ENDPOINT: string = "/subscription";
 
-const appOptions: Options = {
+const appOptions : Options = {
   port: PORT,
   playground: PLAYGROUND_ENDPOINT,
   endpoint: GRAPHQL_ENDPOINT,
   subscriptions: {
     path: SUBSCRIPTION_ENDPOINT,
     onConnect: async connectionParams => {
-      const token = connectionParams["X-JWT"];
-      if (token) {
+      const token = connectionParams['X-JWT'];
+      if(token) {
         const user = await decodeJWT(token);
-        //console.log(user);
-        if (user) {
+        if(user) {
           return {
             currentUser: user
-          };
+          }
         }
+        throw new Error("User not found");
       }
-      throw new Error("No JWT. Can't subscribe");
+      throw new Error("Token not found");
     }
   }
-};
+}
 
-const handleAppStart = () => console.log(`Listening on port ${PORT}`);
-
-createConnection(connectionOptions)
-  .then(() => {
-    app.start(appOptions, handleAppStart);
-  })
-  .catch(error => console.log(error));
+const handleAppStat = () => console.log(`Listening on port ${PORT}`)
+createConnection(ConnectionOptions).then(_ => {
+  app.start(appOptions, handleAppStat);  
+}).catch(error => console.log(error));
