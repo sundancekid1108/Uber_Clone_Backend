@@ -66,8 +66,8 @@ type Message {
   chatId: Int
   user: User!
   userId: Int
-  createdAt: String!
-  updatedAt: String
+  createAt: String!
+  updateAt: String
 }
 
 type AddPlaceResponse {
@@ -132,7 +132,7 @@ type Ride {
   dropOffLat: Float!
   dropOffLng: Float!
   price: Float!
-  driver: User!
+  driver: User
   driverId: Int
   passenger: User!
   passengerId: Int
